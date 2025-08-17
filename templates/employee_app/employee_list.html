@@ -1,22 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> employee-list </title>
+    <title>Employee List</title>
 </head>
 <body>
 
     {% if employees %}
-        {% for employee in employees %}
-            <h2> {{ employee.name }} | {{ employee.department }} {% for ach in employee.achievements.all %} {{ ach.name }} {% endfor %} </h2>
-        {% endfor %}
+        <table border=1px>
+            <tr>
+                <th>Name</th> 
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>Achievements</th>
+                <th> Actions </th>
+            </tr>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.phone }}</td>
+                <td>{{ employee.address }}</td>
+                <td>{{ employee.department }}</td>
+                <td>
+                    {% for ach in employee.achievements.all %}
+                        {{ ach.name }} {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td> <a href="#"> Update </a> | <a href="#"> Delete </a> </td>
+            </tr>
+            {% endfor %}
+        </table>
     {% else %}
-        <h2> No Employee Found </h2> 
+        <h2>No Employee Found</h2> 
     {% endif %}
 
-    <a href="{% url 'add-employee' %}"> Add Employee </a>
+    <br>
+    <a href="{% url 'add-employee' %}">Add Employee</a>
     
 </body>
 </html>
