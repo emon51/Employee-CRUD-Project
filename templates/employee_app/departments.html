@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> departments </title>
+</head>
+<body>
+
+    {% if departments %}
+        {% for dept in departments %}
+            <h2> {{ dept.name }}</h2>
+        {% endfor %}
+    {% else %}
+        <h2> No Department Found </h2>
+    {% endif %}
+    
+</body>
+</html>

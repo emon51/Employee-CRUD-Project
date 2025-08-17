@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> achievements </title>
+</head>
+<body>
+
+    {% if achievements %}
+        {% for achievement in achievements %}
+            <h2> {{ achievement.name }}</h2>
+        {% endfor %}
+    {% else %}
+        <h2> No Achievement Found </h2>
+    {% endif %}
+    
+</body>
+</html>
