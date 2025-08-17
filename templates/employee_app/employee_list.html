@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> employee-list </title>
+</head>
+<body>
+
+    {% if employees %}
+        {% for employee in employees %}
+            <h2> {{ employee.name }} | {{ employee.email }} | {{ employee.phone }} | {{ employee.address }} </h2>
+        {% endfor %}
+    {% else %}
+        <h2> No Employee Found </h2>
+    {% endif %}
+    
+</body>
+</html>
