@@ -5,7 +5,7 @@ from django.db import models
 #Table Department 
 class Department(models.Model):
     #id is default attribute 
-    name = models.CharField(max_length = 100)
+    name = models.CharField(max_length = 100, unique = True)
 
     def __str__(self):
         return self.name
@@ -14,7 +14,7 @@ class Department(models.Model):
 #Table Achievement
 class Achievement(models.Model):
     #id is default attribute 
-    name = models.CharField(max_length = 100)
+    name = models.CharField(max_length = 100, unique = True)
 
     def __str__(self):
         return self.name
@@ -39,6 +39,6 @@ class Employee(models.Model):
 class AchievementEmployee(models.Model):
     achievement = models.ForeignKey(Achievement, on_delete = models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete = models.CASCADE)
-    achievement_date = models.DateField()
+    achievement_date = models.DateField(auto_now = True)
 
 
