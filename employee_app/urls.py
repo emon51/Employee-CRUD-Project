@@ -12,4 +12,7 @@ urlpatterns = [
     path('add-department/', views.add_department, name = 'add-department'),
     path('add-achievement/', views.add_achievement, name = 'add-achievement'), 
     path('add-employee/', views.add_employee, name = 'add-employee'), 
+
+    path('update-employee/<int:id>', views.update_employee, name = 'update-employee'), 
+    path('delete-employee/<int:id>', views.delete_employee, name = 'delete-employee'), 
 ]
