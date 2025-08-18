@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 
 
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 
 from django import forms 
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -19,7 +19,7 @@ class RegisterForm(UserCreationForm):
         fields = ["email", "password1", "password2"]
 
 
-# Registration
+# User registration
 def register(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
@@ -36,3 +36,19 @@ def register(request):
 
 
 
+# User Login 
+def user_login(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        form.fields['username'].label = "Email" # Change username label to Email
+        if form.is_valid():
+            email = form.cleaned_data["username"]   # username = email
+            password = form.cleaned_data["password"]
+            user = authenticate(username=email, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect("home")
+    else:
+        form = AuthenticationForm()
+        form.fields['username'].label = "Email" # Change username label to Email
+    return render(request, "account_app/login.html", {"form": form})
