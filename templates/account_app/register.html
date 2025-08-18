@@ -1,7 +1,12 @@
 
 <b> <u> Registration </u> </b>
+
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit"> Register </button>
 </form>
+
+<br> 
+
+<a href="{% url 'index' %}"> Go Back </a>

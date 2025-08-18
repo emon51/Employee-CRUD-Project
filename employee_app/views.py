@@ -119,27 +119,10 @@ def delete_employee(request, id):
     return redirect('employee-list')
 
 
-''' 
-# Delete department
-
-@login_required
-def delete_department(request, id):
-    dept = get_object_or_404(Department, pk=id)
-    dept.delete()
-    return redirect('departments')
-
-# Delete achivement 
-
-@login_required
-def delete_achievement(request, id):
-    ach = get_object_or_404(Achievement, pk=id)
-    ach.delete()
-    return redirect('achievements')
-
-''' 
 
 # Update department 
 
+@login_required
 def update_department(request, id):
     dept = get_object_or_404(Department, pk=id)
     if request.method == 'POST':
@@ -155,15 +138,16 @@ def update_department(request, id):
 
 # Update achievement
 
+@login_required
 def update_achievement(request, id):
-    ach = get_object_or_404(Achievement, pk=id)
+    achievement = get_object_or_404(Achievement, pk=id)
     if request.method == 'POST':
-        form = AchievementForm(request.POST, instance=ach)
+        form = AchievementForm(request.POST, instance=achievement)
         if form.is_valid():
             form.save()
             return redirect('achievements')
     else:
-        form = AchievementForm(instance=ach)
+        form = AchievementForm(instance=achievement)
     return render(request, 'employee_app/update.html', context = {'form': form})
 
     
