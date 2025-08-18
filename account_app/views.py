@@ -31,7 +31,7 @@ def register(request):
             return redirect("home")
     else:
         form = RegisterForm()
-    return render(request, "account_app/register.html", {"form": form})
+    return render(request, "account_app/register.html", context = {"form": form})
 
 
 
@@ -51,7 +51,7 @@ def user_login(request):
     else:
         form = AuthenticationForm()
         form.fields['username'].label = "Email" # Change username label to Email
-    return render(request, "account_app/login.html", {"form": form})
+    return render(request, "account_app/login.html", context = {"form": form})
 
 
 
@@ -59,3 +59,9 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect("login")
+
+
+
+# Index page 
+def index(request):
+    return render(request, 'account_app/index.html', context = {})
