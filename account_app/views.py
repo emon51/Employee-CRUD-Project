@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 from django import forms 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -36,7 +36,7 @@ def register(request):
 
 
 
-# User Login 
+# User login 
 def user_login(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
@@ -52,3 +52,10 @@ def user_login(request):
         form = AuthenticationForm()
         form.fields['username'].label = "Email" # Change username label to Email
     return render(request, "account_app/login.html", {"form": form})
+
+
+
+# User logout
+def user_logout(request):
+    logout(request)
+    return redirect("login")
