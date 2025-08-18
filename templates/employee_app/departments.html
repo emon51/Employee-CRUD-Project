@@ -13,11 +13,15 @@
             <tr>
                 <th> Id </th>
                 <th> Name </th>
+                <th> Actions </th>
             </tr>
             {% for dept in departments %}
                <tr> 
                    <td> {{ dept.id }} </td>
                    <td> {{ dept.name }} </td>
+                   <td> 
+                      <a href="{% url 'delete-department' dept.id %}"> Delete </a>
+                   </td>
                </tr>
             {% endfor %}
 

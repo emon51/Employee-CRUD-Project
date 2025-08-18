@@ -15,11 +15,15 @@
             <tr> 
                 <th> Id </th>
                 <th> Name </th>
+                <th> Actions </th>
             </tr>
             {% for ach in achievements %}
             <tr>
                 <td> {{ ach.id }} </td>
                 <td> {{ ach.name }} </td>
+                <td> 
+                    <a href="{% url 'delete-achievement' ach.id %}"> Delete </a>
+                </td>
             </tr>
             {% endfor %}
 

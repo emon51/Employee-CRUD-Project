@@ -99,6 +99,19 @@ def delete_employee(request, id):
     return redirect('employee-list')
 
 
+# Delete department 
+def delete_department(request, id):
+    dept = get_object_or_404(Department, pk=id)
+    dept.delete()
+    return redirect('departments')
+
+# Delete achivement 
+def delete_achievement(request, id):
+    ach = get_object_or_404(Achievement, pk=id)
+    ach.delete()
+    return redirect('achievements')
+
+
     
 
 
