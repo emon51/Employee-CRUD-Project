@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee List</title>
+    <title> Employee-List </title>
 </head>
 <body>
 
+    <h2> <u> Employee List </u> </h2>
+
     {% if employees %}
-        <table border=1px>
+        <table border="1px">
             <tr>
                 <th>Name</th> 
                 <th>Email</th>
@@ -40,6 +42,10 @@
 
     <br>
     <a href="{% url 'add-employee' %}">Add Employee</a>
+
+    <br>
+
+    <a href="{% url 'home' %}"> Back </a>
     
 </body>
 </html>

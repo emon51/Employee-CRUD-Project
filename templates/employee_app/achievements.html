@@ -8,15 +8,30 @@
 </head>
 <body>
 
+    <h2> <u> Achievement List </u> </h2>
+
     {% if achievements %}
-        {% for achievement in achievements %}
-            <h2> {{ achievement.name }}</h2>
-        {% endfor %}
+        <table border="1px"> 
+            <tr> 
+                <th> Id </th>
+                <th> Name </th>
+            </tr>
+            {% for ach in achievements %}
+            <tr>
+                <td> {{ ach.id }} </td>
+                <td> {{ ach.name }} </td>
+            </tr>
+            {% endfor %}
+
+        </table>
     {% else %}
         <h2> No Achievement Found </h2>
     {% endif %}
 
-    <a href="{% url 'add-achievement' %}"> Add Achievement </a>
+    <br>
+
+    <a href="{% url 'add-achievement' %}"> Add Achievement </a> <br> 
+    <a href="{% url 'home' %}"> Back </a>
     
 </body>
 </html>

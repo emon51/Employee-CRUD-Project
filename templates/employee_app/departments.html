@@ -7,16 +7,30 @@
     <title> departments </title>
 </head>
 <body>
-
+    <h2> <u> Department List </u> </h2>
     {% if departments %}
-        {% for dept in departments %}
-            <h2> {{ dept.name }}</h2>
-        {% endfor %}
+        <table border="1px">
+            <tr>
+                <th> Id </th>
+                <th> Name </th>
+            </tr>
+            {% for dept in departments %}
+               <tr> 
+                   <td> {{ dept.id }} </td>
+                   <td> {{ dept.name }} </td>
+               </tr>
+            {% endfor %}
+
+        </table>
     {% else %}
         <h2> No Department Found </h2>
     {% endif %}
 
-    <a href="{% url 'add-department' %}"> Add Department </a>
+    <br>
+
+    <a href="{% url 'add-department' %}"> Add Department </a> <br> 
+
+    <a href="{% url 'home' %}"> Back </a>
     
 </body>
 </html>
