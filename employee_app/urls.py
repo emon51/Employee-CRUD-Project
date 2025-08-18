@@ -18,4 +18,7 @@ urlpatterns = [
 
     path('update-department/<int:id>', views.update_department, name = 'update-department'), 
     path('update-achievement/<int:id>', views.update_achievement, name = 'update-achievement'), 
+
+    path('delete-department/<int:id>', views.delete_department, name = 'delete-department'), 
+    path('delete-achievement/<int:id>', views.delete_achievement, name = 'delete-achievement'), 
 ]

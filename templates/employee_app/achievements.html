@@ -20,6 +20,8 @@
                 <td> {{ ach.name }} </td>
                 <td> 
                     <a href="{% url 'update-achievement' ach.id %}"> Update </a>
+                    | 
+                    <a href="{% url 'delete-achievement' ach.id %}"> Delete </a>
                 </td>
             </tr>
             {% endfor %}

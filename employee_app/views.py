@@ -150,6 +150,30 @@ def update_achievement(request, id):
         form = AchievementForm(instance=achievement)
     return render(request, 'employee_app/update.html', context = {'form': form})
 
+
+
+
+
+# Delete department
+
+@login_required
+def delete_department(request, id):
+    dept = get_object_or_404(Department, pk=id)
+    dept.delete()
+    return redirect('departments')
+
+
+
+
+# Delete achivement 
+
+@login_required
+def delete_achievement(request, id):
+    ach = get_object_or_404(Achievement, pk=id)
+    ach.delete()
+    return redirect('achievements')
+
+
     
 
 
