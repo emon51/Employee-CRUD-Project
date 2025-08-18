@@ -1,13 +1,11 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> departments </title>
-</head>
-<body>
-    <h2> <u> Department List </u> </h2>
+
+{% extends 'employee_app/home.html' %}
+
+{% block title %} departments {% endblock %}
+
+{% block content %} 
+    <h2> <u> Department List: </u> </h2>
     {% if departments %}
         <table border="1px">
             <tr>
@@ -20,7 +18,7 @@
                    <td> {{ dept.id }} </td>
                    <td> {{ dept.name }} </td>
                    <td> 
-                      <a href="{% url 'delete-department' dept.id %}"> Delete </a>
+                      <a href="{% url 'update-department' dept.id %}"> Update </a>
                    </td>
                </tr>
             {% endfor %}
@@ -32,9 +30,11 @@
 
     <br>
 
-    <a href="{% url 'add-department' %}"> Add Department </a> <br> 
-
-    <a href="{% url 'home' %}"> Back </a>
+    <a href="{% url 'add-department' %}"> Add Department </a> 
     
-</body>
-</html>
+    <br>
+    <br> 
+
+    <a href="{% url 'home' %}"> Go Back </a>
+    
+{% endblock %}

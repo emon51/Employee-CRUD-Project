@@ -1,14 +1,11 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> achievements </title>
-</head>
-<body>
+{% extends 'employee_app/home.html' %}
 
-    <h2> <u> Achievement List </u> </h2>
+{% block title %} acheivements {% endblock %}
+
+{% block content %}
+
+    <h2> <u> Achievement List: </u> </h2>
 
     {% if achievements %}
         <table border="1px"> 
@@ -22,7 +19,7 @@
                 <td> {{ ach.id }} </td>
                 <td> {{ ach.name }} </td>
                 <td> 
-                    <a href="{% url 'delete-achievement' ach.id %}"> Delete </a>
+                    <a href="{% url 'update-achievement' ach.id %}"> Update </a>
                 </td>
             </tr>
             {% endfor %}
@@ -34,8 +31,11 @@
 
     <br>
 
-    <a href="{% url 'add-achievement' %}"> Add Achievement </a> <br> 
-    <a href="{% url 'home' %}"> Back </a>
+    <a href="{% url 'add-achievement' %}"> Add Achievement </a> 
     
-</body>
-</html>
+    <br>
+    <br>
+
+    <a href="{% url 'home' %}"> Go Back </a>
+    
+{% endblock %}

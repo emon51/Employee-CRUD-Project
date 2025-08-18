@@ -16,6 +16,6 @@ urlpatterns = [
     path('update-employee/<int:id>', views.update_employee, name = 'update-employee'), 
     path('delete-employee/<int:id>', views.delete_employee, name = 'delete-employee'), 
 
-    path('delete-department/<int:id>', views.delete_department, name = 'delete-department'), 
-    path('delete-achievement/<int:id>', views.delete_achievement, name = 'delete-achievement'), 
+    path('update-department/<int:id>', views.update_department, name = 'update-department'), 
+    path('update-achievement/<int:id>', views.update_achievement, name = 'update-achievement'), 
 ]

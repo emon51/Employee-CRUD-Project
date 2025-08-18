@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Employee-List </title>
-</head>
-<body>
 
-    <h2> <u> Employee List </u> </h2>
+
+{% extends 'employee_app/home.html' %}
+
+{% block title %} employee-list {% endblock %}
+
+{% block content %}
+
+    <h2> <u> Employee List: </u> </h2>
 
     {% if employees %}
         <table border="1px">
@@ -44,8 +43,8 @@
     <a href="{% url 'add-employee' %}">Add Employee</a>
 
     <br>
+    <br>
 
-    <a href="{% url 'home' %}"> Back </a>
+    <a href="{% url 'home' %}"> Go Back </a>
     
-</body>
-</html>
+{% endblock %}

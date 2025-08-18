@@ -1,17 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title> Update Employee </title>
-</head>
-<body>
-    <b> Update Employee </b>
 
-    <form method="post">
+
+{% extends 'employee_app/home.html' %}
+
+{% block title %} update {% endblock %}
+
+{% block content %}
+
+    <h3> <u> Update the following informations: </u> </b>
+
+    {% block form %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit"> Update </button>
+        </form>
+
+        <br> 
+
+        <a href="{% url 'employee-list' %}"> Cancel </a>
+    
+    {% endblock %}
+    
+
+{% endblock %}
+
+
+
+
+<form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit"> Update </button>
     </form>
 
+    <br> 
+
     <a href="{% url 'employee-list' %}"> Cancel </a>
-</body>
-</html>
