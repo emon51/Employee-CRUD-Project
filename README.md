@@ -35,7 +35,7 @@ python -m venv myenv
 
 ## Activate virtual environment (For Windows)
 ```
-myenv\Scripts\activate
+"myenv\Scripts\activate"
 ```
 
 ## Change the directory
